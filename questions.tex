@@ -1,0 +1,523 @@
+\documentclass{article}
+\usepackage{graphicx, amsmath, enumerate, booktabs} % Required for inserting images
+
+\title{idk}
+\author{Tom Hammons}
+\date{August 2023}
+
+\begin{document}
+
+\begin{center}
+    {\Large \textbf{DS 6040 Garb}}
+\end{center}
+
+\noindent \textbf{MODULE ONE} (PROBABILITY REVIEW) \\
+At the conclusion of this module, you should be able to:
+\begin{itemize}
+    \item Employ probability theory to solve simple (noncomputationally intensive) problems.
+    \item Use the sum and product rules to derive probabilities and expectations.
+    \item Use distributions to describe and measure uncertainty in data.
+    \item Use Bayes rule to solve problems like the Monty Hall problem.
+\end{itemize}
+
+
+$\newline$
+\textbf{Class Exercise: Probability Theory} (also called "Class Assignment")
+\begin{enumerate}
+    \item What is the probability that a family of two children, one of which is a girl, has two girls?
+    \item Dev has to choose an elective course. What is the probability Dev will get an A in chemistry?
+    \begin{itemize}
+        \item If Dev chooses a CS course, then there is a probability of $\frac{1}{2}$ that Dev will get an A.
+        \item If Dev chooses a chemistry course, then there is a probability of $\frac{1}{3}$ that Dev will get an A.
+        \item Dev chooses the elective by flipping a fair coin.
+    \end{itemize}
+    \item You are in a class with 63 other students.
+    \begin{enumerate}
+        \item What is the probability that you have the same birthday as another member of the class?
+        \item What is the probability that two members of your class share the same birthday?
+        \item If you are equally likely to be in a class with anywhere between 21 and 25 students, what is the probability two members of the class share the same birthday? 
+    \end{enumerate}
+\end{enumerate}
+
+$\newline$
+\textbf{Bayes' Theorem Lecture Notes} Monty Hall Problem Example.
+Suppse you are a contestant on Let's Make a F!\&*\#@ing Deal. Monty Hall gives you the choice of the following three doors
+\begin{itemize}
+    \item Behind door 1 is a car
+    \item Behind door 2 and 3 there is a goat
+\end{itemize}
+After you pick a door, Monty Hall opens a different door and shows you a goat. Should you keep the door you selected or change your choice?
+
+$\newline$
+\textbf{Class Exercise: Bayes' Theorem}
+\begin{enumerate}
+    \item Prisoners A, B, and C are in jail and the jailer tells them that one will be executed and the other two set free. Prisoner A asks the jailer to tell him the name of one of the prisoners to be set free. The jailer refuses because he says prisoner A’s probability of execution will go from $\frac{1}{3}$ to $\frac{1}{2}$. Is the jailer right?
+    \item Suppose an ebola test is available with false positive rate $FP=2.3\%$ and false negative rate $FN=1.4\%$. You have no reason to think you have ebola, but you take the test, and the result is positive. If the prevelance of ebola in the general population is 1:10,000, what is the probability that you have ebola, given that you tested positive on the test?
+\end{enumerate}
+
+
+$\newline$
+\textbf{Additional Class Exercises: Bayes' Theorem} Prisoner's Choice and Medical Tsting Problems.
+\begin{enumerate}
+    \item How is the prisoner's choice problem similar to and differnt from the Monty Hall problem? How do these differences and similarities affect the solution?
+    \item Suppose in the prisoner's choice problem that the jailer tells us that prisoner $B$ will be set free. Does this change the probability that prisoner $C$ will be set free?
+    \item In the medical testing problem, compare the probability that the patient has ebola using frequentist and Bayesian probabilities.
+\end{enumerate}
+
+$\newline$
+\textbf{Class Exercise (1.5)} Univariate Distributions, Expecatations of Univariate Random Variables.
+
+\begin{enumerate}
+\item Suppose a core in a processor fails with a probability of $(1-p)$. A processor will operate successfully in a cluster if at least 50 percent of the cores are working. For what values of $p$ is a quad core processor more reliable than a duo core processor?
+
+\item If the number of accidents that occur on a highway each month is Poisson with $\lambda=3$, what is the probability of an accident free month?
+
+\item If body mass index (BMI) is Gaussian distributed random variable with a mean of 22.5 and a standard deviation of 1.25, what is the likelihood of someone having a BMI > 28?
+
+\item Let $X,Y$ be independent Poisson random variables with parameters $\lambda_{1}$ and $\lambda_{2}$, respectively. What is the expectation of $X+Y$?
+\end{enumerate}
+
+\noindent \textbf{Expectation and Conditioning Lecture Notes (1.7)} Problem on the last slide.
+
+\noindent Suppose $N$ is the number of accidents per week on a freeway and $X_{i}, i\in [1,N]$ is the number of injuries in accident $i$. What is the expected number of injuries per week, $E\left[I\right]$?
+$$E\left[I\right] = E\left[E\left[I|N\right]\right] = E\left[E\left[\sum\limits_{i=1}^{N} X_{i}|N\right]\right]$$
+
+$$ E\left[\sum\limits_{i=1}^{N} X_{i}|N\right] = N \cdot E\left[X\right] $$
+$$ E\left[I\right] = E\left[N\right] \cdot E\left[X\right] $$
+
+\noindent \textbf{Class Exercise (1.7)} Distributions and Expectations of Multivariate Random Variables
+\begin{enumerate}
+    \item If $X$ and $Y$ are independent binomial random variables, each with parameters $n$ and $p$, find $P\left[X=x\right]$ given that $X+Y=m$.
+    \item For independent binomial trials with $P\left(X_{i}=1\right)=p$ ; $i = 1, \ldots, M$ and $M$ the number of trials until the first 1, find $\text{Var}\left(M\right)$.
+    \item A coin is flipped with probability $p$ of a heads. What is the expected number of flips to the first head?
+    \item Write out the full expression for the equation $$ E\left[X\right] = E\left[E\left[X|Y\right]\right]$$
+\end{enumerate}
+
+$\newline$
+\textbf{Quiz 1} Probability Review (1.18)
+\begin{enumerate}
+    \item For two discrete random variables $A=\left(a_{1}, \ldots, a_{n}\right)$, $B=\left(b_{1}, \ldots, b_{n}\right)$, write the equation for $P\left(B=b_j\right)$, $j=1,\ldots, n$ by conditioning on $A$.
+    \item For the discrete random variables in problem (1), write the equation for $P\left(A=a_i | B\in \left\{b_2,b_7\right\}\right)$ using Bayes' theorem.
+\end{enumerate}
+
+$\newline$
+\textbf{Quiz 2} Distributions of Random Variables (1.19)
+\begin{enumerate}
+    \item What is the vector of expected values and the variance-covariance matrix for a random vector $X$ with distribution as follows:
+    $$ f\left(x|\mu, \Sigma\right) = \left(2\pi\right)^{-k/2} |\Sigma|^{-1/2} e^{-1/2\left(x-\mu^{T}\right)^{T} \Sigma^{-1} \left(x-\mu\right)}$$
+    \item What is the normalizing constant in the multinomial distribution:
+    $$ f\left(x|N, p\right) = \frac{N!}{x_1! \cdots x_k!}p_{1}^{x_1} \cdots p_{k}^{x_k} $$
+    \item Which of the following are correct definitions of Bayes' Theorem?
+    \begin{enumerate}
+        \item $ p\left(\theta | X\right) = \frac{p\left(X|\theta\right)p\left(\theta\right)}{p\left(X\right)}$
+        \item $p\left(\theta|X\right) = \frac{p\left(X|\theta\right)p\left(\theta\right)}{\int p\left(X|\theta\right)p\left(\theta\right) d\theta}$
+        \item $p\left(\theta|X\right) = \frac{p\left(X|\theta\right)p\left(\theta\right)}{\int p\left(X|\theta\right)p\left(\theta\right) d\theta}$
+        \item $p\left(X\right) = \sum_{\theta} p\left(X|\theta\right) p\left(\theta\right) $
+    \end{enumerate}
+\end{enumerate}
+
+\newpage
+
+\noindent \textbf{MODULE TWO} Bayesian Modeling - Sampling \\
+At the conclusion of this module, you should be able to:
+\begin{itemize}
+    \item Markov models for real problems with conditional dependence.
+    \item Apply simple sampling methods to approximate distributions.
+    \item Formulate the Markov Chain Monte Carlo (MCMC) and Hamiltonian Monte Carlo (HMC) approaches to sampling.
+    \item Apply MCMC and HMC to real problems in machine learning.
+\end{itemize}
+
+$\newline$
+\textbf{Markov Chain Lecture Notes} Transition Matrix Example 1
+Suppose weather is a 2-state Markov chain, so that if it rains today, it rains tomorrow with probability 0.7, and if it is sunny today, then it is sunny tomorrow with probability 0.6. If it rains today, what is the probability it rains in two days? Four days?
+\begin{itemize}
+    \item 1 day $$ P1 = \begin{bmatrix} 0.7 & 0.3 \\ 0.4 & 0.6 \end{bmatrix} $$
+    \item 2 days $$ P^{2} = \begin{bmatrix} .61 & .39 \\ .52 & .48 \end{bmatrix} $$
+    \item 4 days $$ P^{4} = \begin{bmatrix} .57 & .43 \\ .57 & .43 \end{bmatrix} $$
+\end{itemize}
+
+
+
+$\newline$
+\textbf{Class Exercise: Markov Chains} Markov Chain Convergence (Exercise 5.1)
+\begin{enumerate}
+    \item Suppose weather is a 2 state Markov chain. Further suppose that if it rains today, it rains tomorrow with probability 0.7 and if it is sunny today, then it is sunny tomorrow with probability 0.6. Find the long term probabilities for sunny and rain.
+    \item Social scientists are interested in the job mobility across generations in a society. We can model this as a Markov chain with three states: lower income, middle income, and higher income. Suppose we have the following transition matrix for intergenerational job mobility where the current generation is in the rows and the next generation is in the columns. What are the long run or equilibrim probabilities for each state and how would you interpret these probabilities?
+        $$ \text{Transition Matrix} = \begin{bmatrix} 0.45 & 0.48 & 0.07 \\ 0.05 & 0.70 & 0.25 \\ 0.01 & 0.50 & 0.49 \end{bmatrix} $$
+\end{enumerate}
+
+
+
+$\newline$
+\textbf{Markov Chain Monte Carlo Lecture Notes} Sampling from bivariate Gaussian via Metropolis-Hastings
+Suppose our target is a bivariate Gaussian with strong correlation between the variables
+\begin{enumerate}
+    \item $ \sigma_{\text{max}} $ is longest axis scale.
+    \item $\sigma_{\text{min}} $ is shortest axis scale.
+    \item $\rho $ is the scale of the proposal distribution.
+    \item Suggest we want $ \rho \approx \sigma_{\text{min}} $ to allow slow search in the longest dimension.
+    \item The number of steps to get past the burn-in is of order $$ \left(\frac{\sigma_{\text{max}}}{\sigma_{\text{min}}}\right)^{2} $$
+\end{enumerate}
+
+
+$\newline$
+\textbf{MCMC Class Example} MCMC (Exercise 5.3)
+\begin{enumerate}
+    \item Suppose we want to find the posterior distribution for the parameter $\theta$, and we approximate this distribution with data $X$ as $f\left(\theta|X\right) \propto L\left(X|\theta\right)f\left(\theta\right) = \theta^{-2}$. Using a proposal distribution $\mathcal{N}\left(\theta,2^{2}\right)$ show two iterations of the Metropolis-Hastings algorithm if our current point is $\theta^{(i)} = 4.6$. So, show the values for $\theta^{(i+1)}$ and $\theta^{(i+2)}$. Explain how you obtained these values by showing the steps of the Metropolis-Hastings algorithm.
+    \item Explain how the Gibbs algorithm is a special case of the Metropolis-Hastings algorithm.
+\end{enumerate}
+
+$\newline$
+\textbf{Quiz 3} Markov Chains \& MCMC
+\begin{enumerate}
+    \item Suppose the time series, $X_1, \ldots, X_T$ is a first-order Markov chain. What conditional dependence assumption does this imply? You may write your answer using words or an equation.
+    \item Define an ergodic Markov chain.
+    \item What best describes the motivation for sampling in Bayesian machine learning?
+    \item Why is the transition to the next point in Markov Chain Monte Carlo an example of a Markov chain?
+    \item In the Metropolis-Hastings Algorithm, what happens if the value of the target distribution at the candidate point is greater than the value of the target distribution at the current point?
+    \item What is the difference between the basic Metropolis algorithm and the Metropolis-Hastings algorithm?
+    \item What is the theoretical reason why the Metropolis-Hastings algorithm gives good results for the posterior distribution?
+    \item What information regarding the target distribution is used by the Hamiltonian Monte Carlo that is not used by MCMC?
+    \item What additional parameters does Hamiltonian Monte Carlo use that allows but can create inefficiencies if not chosen correctly?
+    \item What is the most recent extension to Hamiltonian Monte Carlo that addresses the potential inefficiency discussed in question 9?
+\end{enumerate}
+
+
+
+\newpage
+\noindent \textbf{MODULE TWO (2)} Bayesian Modeling - Prior Distributions \\
+At the conclusion of this module, you should be able to:
+
+\begin{itemize}
+    \item Use the elements of Bayes' theorem in problem solving.
+    \item Use univariate conjugate priors to analytically obtain the posterior distribution.
+    \item Use multivariate conjugate priors to analytically obtain the posterior distribution.
+    \item Use noninformative priors to analytically obtain the posterior distribution.
+\end{itemize}
+
+
+$\newline$
+% \textbf{Do problems 1E2-1E4 and 1E6 in MKL.}
+\textbf{Class Exercise: Priors} MKL 1E2
+Match each of these verbal descriptions to their corresponding mathematical expression:
+\begin{itemize}
+    \item The probability of a parameter given the observed data.
+        $$ p\left(\theta|Y\right) \hspace{1em} \text{[posterior]} $$
+    \item The distribution of parameters before seeing any data.
+        $$ p\left(\theta\right) \hspace{1em} \text{[prior]} $$
+    \item The plausibility of the observed data given a parameter value.
+        $$ p\left(Y|\theta\right) \hspace{1em} \text{[likelihood]} $$
+    \item The probability of an unseen observation given the observed data.
+        $$ \int_{\Theta} p\left(\widetilde{Y}|\theta\right)p\left(\theta|Y\right) d\theta \hspace{1em} \text{[posterior predictive distribution]} $$
+    \item The probability of an unseen observation before seeing any data
+        $$ \int_{\Theta} p\left(Y^{*}|\theta\right)p\left(\theta\right) d\theta \hspace{1em} \text{[prior predictive distribution]} $$
+\end{itemize}
+
+
+$\newline$
+\textbf{Class Exercise: Priors} MKL 1E3 \\
+From the following expressions, which one corresponds to the sentence, "The probability of being sunny given that it is July $9^{\text{th}}$ of 1816"?
+\begin{enumerate}[(a)]
+    \item $p\left(\text{sunny}\right)$
+    \item $p\left(\text{sunny} | \text{July}\right)$
+    \item $p\left(\text{sunny} | \text{July 9th of 1816}\right)$ *
+    \item $p\left(\text{July 9th of 1816} | \text{sunny}\right)$
+    \item $ \frac{p\left(\text{sunny, July 9th of 1816}\right)}{p\left(\text{July 9th of 1816}\right)} $ *
+\end{enumerate}
+
+$\newline$
+\textbf{Class Exercise: Priors} MKL 1E4 \\
+Show that the probability of choosing a human at random and picking the Pope is not the same as the probability of the Pope being human. In the animated series Futurama, the (Space) Pope is a reptile. How does this change your previous calculations? \\
+
+\noindent Let's assume there are $7.8\cdot 10^{8}$ (780,000,000) humans and there is only 1 Pope. If a human is picked at random from the entire human population, the chances of that person being the pope is 1 in $7.8\cdot 10^{8}$.
+$$ p\left(\text{Pope}|human\right) = \frac{1}{7.8\cdot 10^{8}} $$
+Moreover, given the Pope, there is a 100 percent chance that he or she is human
+$$ p\left(\text{human}|\text{Pope}\right) = 1 $$
+Now consider the Futurama case in which the (space) Pope is a reptile. We then have
+$$ p\left(\text{Pope}|\text{human}\right) = 0 $$
+$$ p\left(\text{human}|\text{Pope}\right) = 0 $$
+
+
+$\newline$
+\textbf{Class Exercise: Priors} MKL 1E5 \\
+Sketch (by hand) the distribution of possible observed values the following cases:
+\begin{enumerate}[(a)]
+    \item The number of people visiting your local cafe, assuming the number of people who visit follows a Poission distribution.
+    \item The weight of adult dogs in kilograms, assuming that adult-dog-weight follows a Uniform distribution.
+    \item The weight of adult elephants in kilograms, assuming that adult-elephant-weight follows a Normal distribution.
+    \item The weight of adult humans in pounds, assuming that adult-human-weight follows a skewed Normal distribution.
+\end{enumerate}
+
+$\newline$
+\textbf{Class Exercise: Priors} MKL 1E6 \\
+For each example in MKL 1E5, use python to generate a 1000-observation sample. Plot the results. Given what you know about each entity, does the distribution look reasonable?
+
+
+$\newline$
+\textbf{Class Exercise: Univariate Conjugate Priors} \\
+\begin{enumerate}
+    \item Use Bayes' rule to show the following conjugate prior-likelihood relationships:
+    \begin{itemize}
+        \item Beta-Binomial
+        \item Gaussian-Gaussian
+        \item $t$-Distribution - Gaussian
+    \end{itemize}
+    \item Suppose you are a data scientists for a health systems company. The CEO asks you to give her a method to predict if her software engineers will deliver their systems according to schedule. You look at the data for 5 system deliveries by the software engineers and find that only one of them did not meet their scheduled delivery time. Give a prediction with a 95\% confidence interval using a $\text{beta}\left(5,5\right)$ prior (mode=$\frac{1}{2}$, variance=.023).
+    \item You work as a data scientist for a small software-as-a-service (SAS) company. Your CEO asks you to estimate the average time, $X$, it will take to complete an addition to your main product. To do this, you assume $X \sim \mathcal{N}\left(M,\frac{1}{\tau W}\right)$ with $E\left[M\right]=3$ months based on the equivalent of 3 observations. Also, you assume $\text{Pr}\left[M>9\right]=0.01$.
+    \begin{enumerate}
+        \item Find the prior hyperparameters.
+        \item Using data from 14 past projects you obtain the following:
+        $$ \bar{x} = 4.25 $$
+        $$ \sum\limits_{i=1}^{14}\left(x_i - \bar{x}\right)^{2} = 8.46 $$
+        Find the posterior hyperparameters and the 95\% credible interval for your estimate of the project length.
+        \item Before completing your report, another part of the company gives you data from 10 more projects with
+        $$ \bar{x} = 4.48 $$
+        $$ \sum\limits_{i=1}^{10} \left(x_i - \bar{x}\right)^{2} = 5.82 $$
+        Assume the new observations are identically distributed and independent with respect to the first set of observations. Use the posterior from the previous observations as the prior to obtain new hyperparameter estimates. Moreover, obtain a revised 95\% credible interval for the posterior of $M$.
+    \end{enumerate}
+\end{enumerate}
+
+
+$\newline$
+\textbf{Class Exercise: Multivariate Conjugate Priors} \\
+\begin{enumerate}
+    \item Use Bayes' rule to write the conjugate prior-likelihood relationship for Dirichlet-Multinomial and Multivariate $t$-Distribution-Multivariate Gaussian.
+    \item Determine characteristics that contribute to vehicular accidents using the following accident report data
+    \begin{itemize}
+        \item The reports have 3 variables: drunk $\left(d\right)$, texting $\left(t\right)$, and crash outcome $\left(c\right)$, where $d,t \in \left\{0,1\right\}$.
+        \item $$ c = \begin{cases} 0 & \leq \$5k \text{ damages} \\ 1 & > \$5k \text{ damages and no injury or death} \\ 2 & \text{ injury or death} \end{cases} $$
+        \item Accident Data
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{ccc}
+                \toprule
+                d & t & c \\
+                \midrule
+                1 & 1 & 2 \\
+                1 & 0 & 0 \\
+                0 & 1 & 1 \\
+                0 & 1 & 0 \\
+                1 & 1 & 2 \\
+                0 & 0 & 0 \\
+                1 & 0 & 1 \\
+                \bottomrule
+                \end{tabular}
+                \caption{Your Data Frame}
+                \label{tab:my_table}
+            \end{table}
+    \end{itemize}
+    \item You work as a data scientist for a small software-as-a-service (SAS) company. Your CEO asks you to estimate the average time $M_1$ and the average number of full time people $M_2$, it will take to complete an addition to your main product. To do this, you assume $ f\left( | \right) \sim \mathcal{N}\left(\mu_0, vw\right) $ with $E\left[\mu_0\right] = \left(3,4.5\right)$ based on the equivalent of 3 observations (i.e. $v=3$). Also, $f\left(w\right) \sim \text{Wishart}\left(r,\alpha\right)$ where $\alpha=2$ and $$ r = \begin{bmatrix} 1 & .5 \\ .5 & 1.5 \end{bmatrix} $$
+    Find the marginal prior for $\left(M_1,M_2\right)$.
+\end{enumerate}
+
+% P3 = \begin{bmatrix}
+% 0.57 & 0.43 \\
+% 0.57 & 0.43
+% \end{bmatrix}
+$\newline$
+\textbf{Class Exercise: Noninformative Priors} \\
+\begin{enumerate}
+    \item You work as a data scientist for a small software-as-a-service company. Your CEO asks you to estimate the average time $M_1$ and the average number of full time people $M_2$, it will take to complete an addition to your main product. To do this, you assume $f\left(\left(M_1,M_2\right)|w\right) \sim \mathcal{N}\left(\mu_0,w\right)$ and $f\left(w\right) \sim \text{Wishart}\left(r,\alpha\right)$. How can you make these prior distributions non-informative?
+\end{enumerate}
+
+$\newline$
+\textbf{Quiz 4}
+\begin{enumerate}
+    \item What is a maximum entropy prior?
+    \item What is an example of a constraint for the maximum entropy prior?
+    \item What is a conjugate prior?
+    \item What is the advantage to using conjugate priors?
+    \item What is the disadvantage to using conjugate priors?
+    \item What distribution or component of Bayes' rule determines if there is a conjugate prior?
+    \item What is the conjugate prior for the binomial likelihood?
+    \item What is the conjugate prior for the mean of the Gaussian with known variance?
+    \item What is the conjugate prior for the mean of the Gaussian with unknown variance?
+    \item What is the conjugate prior for the parameters of the multinomial distribution?
+    \item What is a non-informative prior?
+    \item What is an informative prior?
+    \item What is an improper prior?
+\end{enumerate}
+
+
+\newpage
+\noindent \textbf{MODULE TWO (3)} Evaluation of Bayesian Modeling and Sampling 
+
+
+$\newline$
+\textbf{Class Exercise: Evaluation of Bayesian Modeling \& Sampling}
+\begin{enumerate}
+    \item Build a Bayesian model to estimate systolic blood pressure (SBP) in patients. You have observations of SBP in 100 patients. Evaluate your prior for this model. Then, develop a posterior with available data and evaluate your posterior modeling.
+    % \item 2. 2M13 from MKL.
+    \item (*This question is done in Python*) \\
+    Generate 200 random binomial samples with $n=1$, $p=.5$ and fit a Beta-Binomial model. Generate 200 more samples of the same kind using the Metropolis Hastings algorithm. Compare the results in terms of
+    \begin{itemize}
+        \item ESS (Effective Sample Size)
+        \item $\hat{R}$
+        \item Autocorrelation
+        \item Trace Plots
+        \item Rank Plots
+    \end{itemize}
+\end{enumerate}
+
+
+$\newline$
+\textbf{Quiz 5: Sampling Evaluation}
+\begin{enumerate}
+    \item What is the potential scale reduction factor, $\hat{R}$, and what values of $\hat{R}$ indicate the sampling is acceptable?
+    \item What is a trace plot and how is it used?
+    \item What is Effective Sample Size (ESS)? What information does it give us about our samples?
+    \item What are Rank Plots and how are they used to evaluate the sampling?
+    \item What are autocorrelation plots and how are they used to evaluate the sampling?
+    \item If our sampling has divergences, what is a common approach to changing the model that frequently helps divergences?
+\end{enumerate}
+
+
+\newpage
+\noindent \textbf{MODULE THREE (1)} Bayesian Regression - Continuous Response \\
+
+$\newline$
+\textbf{Quiz 6: Bayesian Regression}
+\begin{enumerate}
+    \item What does a frequentist  approach assume about the regression parameteres, $\mathbf{\beta}$ in the linear model with a vector of responses, $\mathbf{y}$, data matrix, $\mathbf{X}$ and vector of errors $\mathbf{\epsilon}$
+    $$ \mathbf{y} = \mathbf{X}\mathbf{\beta} + \mathbf{\epsilon} $$
+    \item How does the Bayesian approach relax the frequentist assumption about the regression parameters, $\mathbf{\beta}$, in question 1?
+    \item How does a Bayesian approach regularize the regression coefficient estimates?
+    \item What does the frequentist approach to the linear regression model in question 1 assume about the error terms, $\mathbf{\epsilon}$?
+    \item How does a Bayesian approach to the regression model relax the assumption in question 4?
+    \item Ridge regression is a special case of Bayesian regression with what assumptions about the variance-covariance matricies for the coefficient priors and model error terms?
+    \item Given the assumptions in problem 6 the ridge parameter is a ratio of what values?
+\end{enumerate}
+
+
+\newpage
+\noindent \textbf{MODULE THREE (2)} Generalized Linear Models (GLM) \& Model Evaluation.
+
+
+$\newline$
+\textbf{Information Criteria and BMA Exercises}
+\begin{enumerate}[(a)]
+    \item Explain the estimate for leave-one-out (LOO) cross validation and the widely applicable information criterion (WAIC). How are they related to each other? Note - WAIC is also sometimes referred to as the Watanabe–Akaike information criterion.
+    \item Use the provided data to evaulate two linear models using LOO and WAIC. Then, use Bayesian Model Averaging (BMA) to get an ensemble model.
+\end{enumerate}
+
+
+$\newline$
+\textbf{Quiz 7: Information Criteria, BMA, \& GLM}
+\begin{enumerate}
+    \item Information criteria typically have two terms or components. What are they and what do they do?
+    \item What is the Widely Applicable Information Criteria (WAIC)?
+    \item What is Pareto Smoothed Importance Sampling - Leave one out Cross Validation (PSIS - LOO CV) and what is it used for?
+    \item Why doesn't PSIS - LOO CV have a penalty term?
+    \item What is Bayesian Model Averaging?
+    \item How can we obtain model weights for Bayesian Model Averaging?
+    \item How does a Bayesian approach regularize the regression coefficient estimates?
+    \item How do we assess sampler performance for Bayesian GLM regression?
+\end{enumerate}
+
+
+
+\newpage
+\noindent \textbf{MODULE THREE (3)} Extensions
+
+$\newline$
+\textbf{In class exercise for Bayesian regression extensions} \\
+Implement code in MKL 4.1-4.4
+
+
+$\newline$
+\textbf{Quiz 8: Bayesian Regression Modeling Extensions}
+\begin{enumerate}
+    \item Why would we transform a predictor variable in a regression model?
+    \item Give two examples of transformations we might make.
+    \item How do we choose a transformation?
+    \item How do we model problems with heteroskedasticity?
+    \item What is an interaction term in a regression model?
+    \item What does a pairwise interaction term mean, such as $x_{i}x_{j}$?
+    \item What is a robust regression model?
+    \item What is a good choice for the error distribution in the regression model to help make it more robust?
+\end{enumerate}
+
+
+$\newline$
+\textbf{Extending Regression Modeling: Jupyter Notebook Examples} \\
+The notebook provides examples of the following four extensions to the basic Ordinary Least Squares (OLS) formulation
+\begin{itemize}
+    \item Variable Transformation
+    \begin{itemize} \item response: baby length; predictor: baby age in months \end{itemize}
+    \item Varying Uncertainty
+        \begin{itemize}
+            \item same data, but allows response variance to be heteroskedastic
+        \end{itemize}
+    \item Interaction Effects
+        \begin{itemize}
+            \item comparing additive and multiplicative (i.e. interaction) models using restaurant bill data
+        \end{itemize}
+    \item Robust Regression
+        \begin{itemize}
+            \item utilize $t$-distribution to make regression model more resistant to influence by extreme outlier values
+        \end{itemize}
+\end{itemize}
+
+
+\newpage
+\noindent \textbf{MODULE THREE (4)} Bayesian Regression - Hierarchical Models
+
+
+$\newline$
+\textbf{Hierarchical Prior Example - Therapeutic Touch (TT)} \\
+Jupyter Notebook about the following study:
+\begin{itemize}
+    \item Health care practitioners sweep their hands over a patient’s body at a distance of 5-10 cm and sense whether and where the patient has depleted energy.
+    \item If depletion is found, the practitioners then attempt to 'repattern' the patient's energy field.
+    \item 28 practitioners participated in a sutdy of this technique.
+    \begin{itemize}
+        \item TT practicitioner holds out both hands, palm up, with a view of her hand blocked by a screen.
+        \item Tester randomly puts his/her right hand over one of the practitioner's hands.
+        \ Practitioner must say which hand was near the tester's hand.
+        \item Each TT practitioner has 10 trials.
+        \item If we randomly guessed the hand, we would expect 5 to be correct because each of the two outcomes has a .50 probability.
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item Donnie Brown provides some modeling suggestions:
+    \begin{itemize}
+    \item Let $\omega$ be the mean number of correct guesses by a practitioner.
+    \item Assume a flat (i.e. uninformative) prior for the group mean
+        $$ \omega \sim \text{beta}\left(1,1\right) $$
+    \item $\kappa$ denotes the extent to which each practitioner's ability to correctly identify the hand is dependent upon the group mean.
+    \item Assume the mean of $\kappa$ is 10.
+    \item Assume the standard deviation of $\kappa$ is 10.
+    \item Apply sampling to get an estimate for $\theta_{j}, j = 1, \ldots, 28 $ (i.e. an estimate for each of the 28 practitioners).
+    \end{itemize}
+\end{itemize}
+
+
+$\newline$
+\textbf{Hierarchical Modeling: Radon Example.pdf} \\
+Jupyter notebook that covers the following situation
+\begin{itemize}
+    \item Radon is a carcinogenic gas that can enter a home.
+    \item Amount of radon-per-house varies by the house.
+    \item Minnesota EPA data supplied for 80 thousand houses.
+    \item Predictor variables
+    \begin{itemize}
+        \item Floor (categorical with levels: basement, first)
+        \item County uranium levels (continuous)
+    \end{itemize}
+\end{itemize}
+
+$\newline$
+\textbf{Quiz 9: Hierarchical Models}
+\begin{enumerate}
+    \item Why would we use a model with hierarchical prior distributions?
+    \item Why would we use hierarchical prior distributions in a linear regression model?
+    \item What is a pooled or complete pooled model?
+    \item What is the major disadvantage to pooled models?
+    \item What is an unpooled or no pooled model?
+    \item What is the major disadvantage to no pooled models?
+    \item What is a hierarchical model and how does it address the problems of pooled and no pooled models?
+\end{enumerate}
+
+
+
+\end{document}
